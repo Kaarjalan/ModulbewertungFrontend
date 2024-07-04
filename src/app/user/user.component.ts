@@ -9,4 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent{
 
+  neuerUser = 'Sen-Meister';
+  neuerUserRolle = 'Admin';
+  hideRole = true;
+
+  toggle(){
+    this.hideRole = !this.hideRole;
+  }
+
 }

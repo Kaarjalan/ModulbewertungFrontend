@@ -1,1 +1,6 @@
-<p>user works!</p>
+<h2>Hallo {{neuerUser}}!</h2>
+<button (click)="toggle()">Rolle anzeigen</button>
+<div [hidden]="hideRole">
+    Die Rolle von {{neuerUser}}:
+    <div [innerText]='neuerUserRolle'></div>
+</div>
