@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ModulesComponent {
 
+  hideModules = true;
+
+  toggleModules(){
+    this.hideModules = !this.hideModules;
+  }
+
 }
