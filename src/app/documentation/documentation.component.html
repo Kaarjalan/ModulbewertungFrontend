@@ -18,10 +18,38 @@
             </tr>
         </thead>
         <tbody>
+            <ng-container *ngFor="let abschnitt of abschnitte">
+                <tr>
+                  <td><b>{{ abschnitt.nummer }}</b></td>
+                  <td><b>{{ abschnitt.name }}</b></td>
+                  <td><b>{{ abschnitt.faktor }}</b></td>
+                  <td [attr.rowspan]="abschnitt.bewertungsKriterien.length + 1">
+                    {{ getAbschnittPunkte(abschnitt) }}
+                  </td>
+                  <td [attr.rowspan]=" abschnitt.bewertungsKriterien.length + 1 ">
+                    <b>{{ getAbschnittErgebnis(abschnitt) }}</b>
+                  </td>
+                  <td>{{ abschnitt.notiz }}</td>
+                </tr>
+                <tr *ngFor="let kriterium of abschnitt.bewertungsKriterien">
+                  <td></td>
+                  <td>{{ kriterium.name }}</td>
+                  <td>
+                    <input type="number"
+                           [(ngModel)]="kriterium.punkte"
+                           (ngModelChange)="updateGesamtErgebnis()"
+                           min="0"
+                           max="10"
+                           step="1">
+                  </td>
+                  <td>{{ kriterium.notiz }}</td>
+                </tr>
+              </ng-container>
             
-            <app-d-vollstaendig></app-d-vollstaendig>
                 
             <!-- 2. Optischer Eindruck-->
+            
+            <!-- 
             <tr>
                 <td><b>2</b></td>
                 <td><b>Wie ist der optische Eindruck?</b></td>
@@ -42,7 +70,7 @@
                 <td>%%</td>
                 <td>Input des Bewertenden einholen</td>
             </tr>
-            <!-- 3. Entspricht die sprachliche Gestaltung einer fachlichen Doku?-->
+            3. Entspricht die sprachliche Gestaltung einer fachlichen Doku?
             <tr>
                 <td><b>3</b></td>
                 <td><b>Entspricht die sprachliche Gestaltung einer fachlichen Doku?</b></td>
@@ -75,7 +103,7 @@
                 <td>%%</td>
                 <td>Input des Bewertenden einholen</td>
             </tr>
-            <!-- 4. Praxisbezogene und zielorientierte Arbeitsabläufe?-->
+             4. Praxisbezogene und zielorientierte Arbeitsabläufe?
             <tr>
                 <td><b>4</b></td>
                 <td><b>Praxisbezogene und zielorientierte Arbeitsabläufe?</b></td>
@@ -103,7 +131,7 @@
                 <td>Input des Bewertenden einholen</td>
             </tr>
 
-            <!-- 5. Beschreibung der Vorgaben / Einflussfaktoren-->
+             5. Beschreibung der Vorgaben / Einflussfaktoren
             <tr>
                 <td><b>5</b></td>
                 <td><b>Beschreibung der Vorgaben / Einflussfaktoren</b></td>
@@ -136,7 +164,7 @@
                 <td>%%</td>
                 <td>Input des Bewertenden einholen</td>
             </tr>
-            <!-- 6. Fachliche Qualität-->
+             6. Fachliche Qualität
             <tr>
                 <td><b>6</b></td>
                 <td><b>Fachliche Qualität</b></td>
@@ -162,8 +190,8 @@
                 <td>fachliche Tiefe / Komplexität</td>
                 <td>%%</td>
                 <td>Input des Bewertenden einholen</td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
-    <h4>Ergebnis Dokumentation: %%</h4>
+    <h4>Ergebnis Dokumentation: {{ gesamtErgebnis }}</h4>
 </div>
