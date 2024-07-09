@@ -2,6 +2,7 @@ import { Component, importProvidersFrom, OnInit } from '@angular/core';
 import { Abschnitt } from '../bewertung.models/bewertung.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BewertungHeaderComponent } from '../bewertung-header/bewertung-header.component';
 
 @Component({
   selector: 'app-documentation',
@@ -41,13 +42,19 @@ export class DocumentationComponent {
     },
   ];
   gesamtErgebnis: number = 0;
-  getAbschnittPunkte(abschnitt: Abschnitt):number {
-    return abschnitt.bewertungsKriterien.reduce((sum, kriterium) => sum + kriterium.punkte, 0)
+  
+  getAbschnittPunkte(abschnitt: Abschnitt):number {    
+    const summe = abschnitt.bewertungsKriterien.reduce((sum, kriterium) => sum + kriterium.punkte, 0);
+    const durchschnitt = summe / abschnitt.bewertungsKriterien.length;
+    return Math.ceil(durchschnitt);
   }
   getAbschnittErgebnis(abschnitt: Abschnitt): number {
-    return this.getAbschnittPunkte(abschnitt) * abschnitt.faktor;
+    const abschnittPunkte = this.getAbschnittPunkte(abschnitt);
+    return abschnittPunkte * abschnitt.faktor;
   }
   updateGesamtErgebnis(){
-
+    this.gesamtErgebnis = this.abschnitte.reduce((total,abschnitt) => {
+      return total + this.getAbschnittErgebnis(abschnitt);
+    }, 0);
   }
 }
