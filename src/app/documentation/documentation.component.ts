@@ -1,5 +1,5 @@
 import { Component, importProvidersFrom, OnInit } from '@angular/core';
-import { Abschnitt, bewertungsKriterium } from '../bewertung.models/bewertung.model';
+import { Abschnitt, BewertungsKriterium } from '../bewertung.models/bewertung.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -16,7 +16,7 @@ export class DocumentationComponent {
     nummer: 1, 
     name: "Ist die Dokumentation formal vollständig?",
     faktor: 0.5,
-    bewertungsKriterien: [
+    bewertungsKriterium: [
       {name: "Seitenangaben", punkte: 0, notiz: ""},
       {name: "Quellenangaben", punkte: 0, notiz: ""},
       {name: "Inhaltsverzeichnis/Gliederung", punkte: 0, notiz: ""},
@@ -29,8 +29,8 @@ export class DocumentationComponent {
   gesamtErgebnis: number = 0;
   
   getAbschnittPunkte(abschnitt: Abschnitt):number {    
-    const summe = abschnitt.bewertungsKriterien.reduce((sum, kriterium) => sum + kriterium.punkte, 0);
-    const durchschnitt = summe / abschnitt.bewertungsKriterien.length;
+    const summe = abschnitt.bewertungsKriterium.reduce((sum, kriterium) => sum + kriterium.punkte, 0);
+    const durchschnitt = summe / abschnitt.bewertungsKriterium.length;
     return Math.ceil(durchschnitt);
   }
   getAbschnittErgebnis(abschnitt: Abschnitt): number {
@@ -45,7 +45,7 @@ export class DocumentationComponent {
   updateNotiz(){
     
   }
-  updatePunkte(event: any, kriterium: bewertungsKriterium){
+  updatePunkte(event: any, kriterium: BewertungsKriterium){
     const value = event === '' ? 0 : Number(event);
     kriterium.punkte = value;
     this.updateGesamtErgebnis();
