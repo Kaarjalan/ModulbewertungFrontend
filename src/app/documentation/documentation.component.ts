@@ -18,26 +18,12 @@ export class DocumentationComponent {
     name: "Ist die Dokumentation formal vollständig?",
     faktor: 0.5,
     bewertungsKriterien: [
-      { name: "Seitenangaben",
-        punkte: 0,
-        notiz: "etwas"
-      },
-      {name: "Quellenangaben",
-        punkte: 0, 
-        notiz: "etwas"
-      },
-      {name: "Inhaltsverzeichnis/Gliederung",
-        punkte: 0, 
-        notiz: "etwas"
-      },
-      {name: "Zeitplan",
-        punkte: 0, 
-        notiz: "etwas"
-      },
-      {name: "Anlagenverzeichnis",
-        punkte: 0, 
-        notiz: "etwas"
-      },],
+      {name: "Seitenangaben", punkte: 0, notiz: "etwas"},
+      {name: "Quellenangaben", punkte: 0, notiz: "etwas"},
+      {name: "Inhaltsverzeichnis/Gliederung", punkte: 0, notiz: "etwas"},
+      {name: "Zeitplan", punkte: 0, notiz: "etwas"},
+      {name: "Anlagenverzeichnis",punkte: 0, notiz: "etwas"},
+      ],
       notiz: "Input Dozent"
     },
   ];
