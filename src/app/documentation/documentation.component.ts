@@ -2,14 +2,13 @@ import { Component, importProvidersFrom, OnInit } from '@angular/core';
 import { Abschnitt } from '../bewertung.models/bewertung.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { BewertungHeaderComponent } from '../bewertung-header/bewertung-header.component';
 
 @Component({
   selector: 'app-documentation',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './documentation.component.html',
-  styleUrl: './documentation.component.css'
+  styleUrl: './documentation.component.css',
 })
 export class DocumentationComponent {
   abschnitte: Abschnitt[] = [
@@ -18,13 +17,13 @@ export class DocumentationComponent {
     name: "Ist die Dokumentation formal vollständig?",
     faktor: 0.5,
     bewertungsKriterien: [
-      {name: "Seitenangaben", punkte: 0, notiz: "etwas"},
-      {name: "Quellenangaben", punkte: 0, notiz: "etwas"},
-      {name: "Inhaltsverzeichnis/Gliederung", punkte: 0, notiz: "etwas"},
-      {name: "Zeitplan", punkte: 0, notiz: "etwas"},
-      {name: "Anlagenverzeichnis",punkte: 0, notiz: "etwas"},
+      {name: "Seitenangaben", punkte: 0, notiz: ""},
+      {name: "Quellenangaben", punkte: 0, notiz: ""},
+      {name: "Inhaltsverzeichnis/Gliederung", punkte: 0, notiz: ""},
+      {name: "Zeitplan", punkte: 0, notiz: ""},
+      {name: "Anlagenverzeichnis",punkte: 0, notiz: ""},
       ],
-      notiz: "Input Dozent"
+      notiz: ""
     },
   ];
   gesamtErgebnis: number = 0;
@@ -42,5 +41,8 @@ export class DocumentationComponent {
     this.gesamtErgebnis = this.abschnitte.reduce((total,abschnitt) => {
       return total + this.getAbschnittErgebnis(abschnitt);
     }, 0);
+  }
+  updateNotiz(){
+    
   }
 }

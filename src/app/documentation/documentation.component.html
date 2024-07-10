@@ -42,12 +42,14 @@
                            max="10"
                            step="1">
                   </td>
-                  <td>{{ kriterium.notiz }}</td>
+                  <td>
+                    <input type="text"
+                    placeholder="Bewerte uns gut bitte :)"
+                           [(ngModel)]="kriterium.notiz"
+                           (ngModelChange)="updateNotiz()">
+                  </td>
                 </tr>
               </ng-container>
-            
-                
-            
         </tbody>
     </table>
     <h4>Ergebnis Dokumentation: {{ gesamtErgebnis }}</h4>
