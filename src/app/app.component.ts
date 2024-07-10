@@ -5,7 +5,7 @@ import { StudentsComponent } from './students/students.component';
 import { ModulesComponent } from './modules/modules.component';
 import { BewertungHeaderComponent } from './bewertung-header/bewertung-header.component';
 import { DocumentationComponent } from './documentation/documentation.component';
-import { OptischComponent } from './optisch/optisch.component';
+import { OptischComponent } from './documentation/2-optisch/optisch.component';
 
 @Component({
   selector: 'app-root',
