@@ -1,5 +1,5 @@
 import { Component, importProvidersFrom, OnInit } from '@angular/core';
-import { Abschnitt } from '../bewertung.models/bewertung.model';
+import { Abschnitt, bewertungsKriterium } from '../bewertung.models/bewertung.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -44,5 +44,10 @@ export class DocumentationComponent {
   }
   updateNotiz(){
     
+  }
+  updatePunkte(event: any, kriterium: bewertungsKriterium){
+    const value = event === '' ? 0 : Number(event);
+    kriterium.punkte = value;
+    this.updateGesamtErgebnis();
   }
 }
