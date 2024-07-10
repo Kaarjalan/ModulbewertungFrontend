@@ -5,6 +5,7 @@ import { StudentsComponent } from './students/students.component';
 import { ModulesComponent } from './modules/modules.component';
 import { BewertungHeaderComponent } from './bewertung-header/bewertung-header.component';
 import { DocumentationComponent } from './documentation/documentation.component';
+import { OptischComponent } from './optisch/optisch.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,9 @@ import { DocumentationComponent } from './documentation/documentation.component'
     StudentsComponent, 
     ModulesComponent,
     DocumentationComponent,  
-    BewertungHeaderComponent],
+    BewertungHeaderComponent,
+    OptischComponent
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
