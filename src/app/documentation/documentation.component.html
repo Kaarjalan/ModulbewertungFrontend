@@ -38,7 +38,7 @@
                     <input type="number"
                            [ngModel]="kriterium.punkte === 0 ? '' : kriterium.punkte"
                            (ngModelChange)="updatePunkte($event, kriterium)"
-                           placeholder="0"
+                           placeholder="-"
                            min="0"
                            max="10"
                            step="1">
