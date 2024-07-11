@@ -9,8 +9,7 @@
 <app-documentation></app-documentation>
 <app-optisch></app-optisch>
 <div class="gesamtergebnis">
-    <h2>Gesamtergebnis</h2>
-    <p>{{ gesamtErgebnis$ }}</p>
-  </div>
+    <h2>Gesamtergebnis Dokumentation: {{ (gesamtErgebnis$ | async) ?? 'Wird berechnet...' }}</h2>
+</div>
 <button>Speichern Dokumentation</button>
 <h3>Präsentation</h3>

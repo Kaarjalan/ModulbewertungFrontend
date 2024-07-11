@@ -8,6 +8,7 @@ import { DocumentationComponent } from './documentation/documentation.component'
 import { OptischComponent } from './documentation/2-optisch/optisch.component';
 import { Observable } from 'rxjs';
 import { BewertungsService } from './service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { BewertungsService } from './service';
     ModulesComponent,
     DocumentationComponent,  
     BewertungHeaderComponent,
-    OptischComponent
+    OptischComponent,
+    CommonModule
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -28,9 +30,10 @@ export class AppComponent implements OnInit{
   title = 'modulbewertung';
   gesamtErgebnis$: Observable<number> = this.bewertungsService.gesamtErgebnis$;
 
-  constructor(private bewertungsService: BewertungsService){}
+  constructor(private bewertungsService: BewertungsService){
+  this.gesamtErgebnis$ = this.bewertungsService.gesamtErgebnis$;
+}
 
   ngOnInit() {
-    this.gesamtErgebnis$ = this.bewertungsService.gesamtErgebnis$;
   }
 }
