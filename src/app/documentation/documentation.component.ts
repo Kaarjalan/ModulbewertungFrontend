@@ -2,6 +2,7 @@ import { Component, importProvidersFrom, OnInit } from '@angular/core';
 import { Abschnitt, BewertungsKriterium } from '../bewertung.models/bewertung.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BewertungsService } from '../service';
 
 @Component({
   selector: 'app-documentation',
@@ -10,8 +11,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './documentation.component.html',
   styleUrl: './documentation.component.css',
 })
-export class DocumentationComponent {
-  abschnitte: Abschnitt[] = [
+export class DocumentationComponent implements OnInit{
+  bewertungsAbschnitte: Abschnitt[] = [
     {
     nummer: 1, 
     name: "Ist die Dokumentation formal vollständig?",
@@ -26,28 +27,22 @@ export class DocumentationComponent {
       notiz: ""
     },
   ];
-  gesamtErgebnis: number = 0;
+
+  constructor(private bewertungsService: BewertungsService){}
+
+  ngOnInit(){
+    this.bewertungsService.updateGesamtErgebnis(this.bewertungsAbschnitte);
+  }
   
   getAbschnittPunkte(abschnitt: Abschnitt):number {    
-    const summe = abschnitt.bewertungsKriterium.reduce((sum, kriterium) => sum + kriterium.punkte, 0);
-    const durchschnitt = summe / abschnitt.bewertungsKriterium.length;
-    return Math.ceil(durchschnitt);
+    return this.bewertungsService.getAbschnittPunkte (abschnitt);
   }
   getAbschnittErgebnis(abschnitt: Abschnitt): number {
-    const abschnittPunkte = this.getAbschnittPunkte(abschnitt);
-    return abschnittPunkte * abschnitt.faktor;
+    return this.bewertungsService.getAbschnittErgebnis(abschnitt);
   }
-  updateGesamtErgebnis(){
-    this.gesamtErgebnis = this.abschnitte.reduce((total,abschnitt) => {
-      return total + this.getAbschnittErgebnis(abschnitt);
-    }, 0);
-  }
-  updateNotiz(){
-    
-  }
+  updateNotiz(){}
   updatePunkte(event: any, kriterium: BewertungsKriterium){
-    const value = event === '' ? 0 : Number(event);
-    kriterium.punkte = value;
-    this.updateGesamtErgebnis();
+    this.bewertungsService.updatePunkte(kriterium, event);
+    this.bewertungsService.updateGesamtErgebnis(this.bewertungsAbschnitte);
   }
 }

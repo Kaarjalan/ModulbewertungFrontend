@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-optisch',
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './optisch.component.html',
   styleUrl: './optisch.component.css'
 })
-export class OptischComponent {
+export class OptischComponent implements OnInit{
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
 }

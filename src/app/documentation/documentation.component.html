@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor="let abschnitt of abschnitte">
+            <ng-container *ngFor="let abschnitt of bewertungsAbschnitte">
                 <tr>
                   <td><b>{{ abschnitt.nummer }}</b></td>
                   <td><b>{{ abschnitt.name }}</b></td>
@@ -55,5 +55,4 @@
               </ng-container>
         </tbody>
     </table>
-    <h4>Ergebnis Dokumentation: {{ gesamtErgebnis }}</h4>
 </div>
