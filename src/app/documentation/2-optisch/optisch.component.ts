@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './optisch.component.html',
   styleUrl: './optisch.component.css'
 })
-export class OptischComponent implements OnInit{
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class OptischComponent{
 
 }
