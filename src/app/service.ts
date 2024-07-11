@@ -21,11 +21,22 @@ getAbschnittErgebnis(abschnitt: Abschnitt): number {
   const abschnittPunkte = this.getAbschnittPunkte(abschnitt);
   return abschnittPunkte * abschnitt.faktor;
 }
-updateGesamtErgebnis(abschnitte: Abschnitt[]){
+/*updateGesamtErgebnis(abschnitte: Abschnitt[]){
   const gesamtErgebnis = abschnitte.reduce((total, abschnitt) => {
     return total + this.getAbschnittErgebnis(abschnitt);
   }, 0);
   this.gesamtErgebnisSubject.next(gesamtErgebnis);
+}*/
+updateGesamtErgebnis(abschnitte: Abschnitt[]) {
+  const gesamtErgebnis = abschnitte.reduce((total, abschnitt) => {
+    const abschnittErgebnis = this.getAbschnittErgebnis(abschnitt);
+    return total + abschnittErgebnis;
+  }, 0);
+
+  // Round the result to two decimal places
+  const roundedGesamtErgebnis = Math.round(gesamtErgebnis * 100) / 100;
+
+  this.gesamtErgebnisSubject.next(roundedGesamtErgebnis);
 }
 updatePunkte(kriterium: BewertungsKriterium, value: string | number){
   kriterium.punkte = value === '' ? 0 : Number(value);

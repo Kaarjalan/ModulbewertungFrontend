@@ -12,21 +12,7 @@ import { BewertungsService } from '../service';
   styleUrl: './documentation.component.css',
 })
 export class DocumentationComponent implements OnInit{
-  bewertungsAbschnitte: Abschnitt[] = [
-    {
-    nummer: 1, 
-    name: "Ist die Dokumentation formal vollständig?",
-    faktor: 0.5,
-    bewertungsKriterium: [
-      {name: "Seitenangaben", punkte: 0, notiz: ""},
-      {name: "Quellenangaben", punkte: 0, notiz: ""},
-      {name: "Inhaltsverzeichnis/Gliederung", punkte: 0, notiz: ""},
-      {name: "Zeitplan", punkte: 0, notiz: ""},
-      {name: "Anlagenverzeichnis",punkte: 0, notiz: ""},
-      ],
-      notiz: ""
-    },
-  ];
+  bewertungsAbschnitte: Abschnitt[] = [];
 
   constructor(private bewertungsService: BewertungsService){}
 

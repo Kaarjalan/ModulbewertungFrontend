@@ -1,3 +1,47 @@
+.bewertung-tabelle-container {
+  overflow-x: auto;
+}
+
+.bewertung-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.bewertung-tabelle th,
+.bewertung-tabelle td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.bewertung-tabelle thead {
+  background-color: #f2f2f2;
+}
+
+.header-leer {
+  width: 5%;
+}
+
+.col-nummer { width: 5%; }
+.col-kriterium { width: 30%; }
+.col-faktor { width: 10%; }
+.col-punkte { width: 15%; }
+.col-ergebnis { width: 15%; }
+.col-anmerkungen { width: 25%; }
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.expandable-input {
+  min-height: 30px;
+  resize: vertical;
+}
 .expandable-input {
   width: 300px; /* Startbreite */
 }

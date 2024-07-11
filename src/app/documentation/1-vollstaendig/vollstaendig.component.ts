@@ -29,10 +29,6 @@ export class VollstaendigComponent {
   ];
 
   constructor(private bewertungsService: BewertungsService){}
-
-  ngOnInit(){
-    this.bewertungsService.updateGesamtErgebnis(this.bewertungsAbschnitte);
-  }
   
   getAbschnittPunkte(abschnitt: Abschnitt):number {    
     return this.bewertungsService.getAbschnittPunkte (abschnitt);
