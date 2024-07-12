@@ -5,7 +5,7 @@ import { TeilnehmerComponent } from './teilnehmer/teilnehmer.component';
 import { ModulesComponent } from './modules/modules.component';
 import { BewertungHeaderComponent } from './bewertung-header/bewertung-header.component';
 import { OptischComponent } from './documentation/2-optisch/optisch.component';
-import { BewertungsService } from './service';
+import { BewertungsService } from './service/service';
 import { CommonModule } from '@angular/common';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { VollstaendigComponent } from './documentation/1-vollstaendig/vollstaendig.component';

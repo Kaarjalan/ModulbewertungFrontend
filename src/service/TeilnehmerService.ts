@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ParticipantService {
-  private apiUrl = 'https://academy-u202309-020-cc517cb3324e.herokuapp.com/api/users/teilnehmer';
+export class TeilnehmerService {
+  private apiUrl = 'https://your-heroku-app.herokuapp.com/api/participants';
 
   constructor(private http: HttpClient) { }
 
-  getParticipants(): Observable<any[]> {
+  getTeilnehmer(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 }

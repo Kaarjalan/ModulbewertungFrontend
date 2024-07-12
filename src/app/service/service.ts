@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Abschnitt, BewertungsKriterium } from "./bewertung.models/bewertung.model";
-
+import { Abschnitt, BewertungsKriterium } from "../bewertung.models/bewertung.model";
 
 @Injectable({
     providedIn: 'root'
