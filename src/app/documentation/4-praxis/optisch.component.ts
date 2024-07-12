@@ -18,7 +18,7 @@ export class PraxisComponent implements OnInit {
   bewertungsAbschnitte: Abschnitt[] = [
     {
     nummer: 4, 
-    name: "Praxisbezogene und zielorientierte Aurbeitsbläufe?",
+    name: "Praxisbezogene und zielorientierte Arbeitsbläufe?",
     faktor: 2,
     bewertungsKriterium: [
       {name: "Projektanstoß", punkte: 0, notiz: ""},
