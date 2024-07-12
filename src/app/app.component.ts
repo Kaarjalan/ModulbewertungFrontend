@@ -31,12 +31,19 @@ import { VollstaendigComponent } from './documentation/1-vollstaendig/vollstaend
 })
 export class AppComponent implements OnInit{
   title = 'modulbewertung';
-  gesamtErgebnis$: Observable<number> = this.bewertungsService.gesamtErgebnis$;
+  gesamtErgebnis$: number = 0;
 
-  constructor(private bewertungsService: BewertungsService){
-  this.gesamtErgebnis$ = this.bewertungsService.gesamtErgebnis$;
-}
+  constructor(private bewertungsService: BewertungsService){}
 
   ngOnInit() {
+    this.updateGesamtErgebnis();
+  }
+
+  updateGesamtErgebnis(){
+    this.gesamtErgebnis$ = this.bewertungsService.getGesamtErgebnis();
+  }
+
+  onAbschnittChanged(){
+    this.updateGesamtErgebnis();
   }
 }

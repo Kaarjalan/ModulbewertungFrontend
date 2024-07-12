@@ -1,34 +1,33 @@
-import { Component, importProvidersFrom, OnInit } from '@angular/core';
-import { Abschnitt, BewertungsKriterium } from '../bewertung.models/bewertung.model';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BewertungsService } from '../service';
+import { VollstaendigComponent } from './1-vollstaendig/vollstaendig.component';
+import { OptischComponent } from './2-optisch/optisch.component';
 
 @Component({
   selector: 'app-documentation',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, VollstaendigComponent, OptischComponent],
   templateUrl: './documentation.component.html',
   styleUrl: './documentation.component.css',
 })
 export class DocumentationComponent implements OnInit{
-  bewertungsAbschnitte: Abschnitt[] = [];
+  gesamtErgebnis: number = 0;
 
   constructor(private bewertungsService: BewertungsService){}
 
   ngOnInit(){
-    this.bewertungsService.updateGesamtErgebnis(this.bewertungsAbschnitte);
+    this.updateGesamtErgebnis();
   }
-  
-  getAbschnittPunkte(abschnitt: Abschnitt):number {    
-    return this.bewertungsService.getAbschnittPunkte (abschnitt);
+
+  onAbschnittChanged(){
+    this.updateGesamtErgebnis();
   }
-  getAbschnittErgebnis(abschnitt: Abschnitt): number {
-    return this.bewertungsService.getAbschnittErgebnis(abschnitt);
+
+  private updateGesamtErgebnis(){
+    this.gesamtErgebnis = this.bewertungsService.getGesamtErgebnis();
   }
-  updateNotiz(){}
-  updatePunkte(event: any, kriterium: BewertungsKriterium){
-    this.bewertungsService.updatePunkte(kriterium, event);
-    this.bewertungsService.updateGesamtErgebnis(this.bewertungsAbschnitte);
-  }
+
+  speichernDokumentation(){}
 }

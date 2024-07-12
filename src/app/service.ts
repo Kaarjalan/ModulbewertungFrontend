@@ -7,44 +7,39 @@ import { Abschnitt, BewertungsKriterium } from "./bewertung.models/bewertung.mod
     providedIn: 'root'
 })
 export class BewertungsService {
-gesamtErgebnisSubject = new BehaviorSubject<number>(0);
-gesamtErgebnis$ = this.gesamtErgebnisSubject.asObservable();
+  private abschnitte: Abschnitt[] = [];
 
 constructor() {}
+
+addAbschnitt(abschnitt: Abschnitt){
+  this.abschnitte.push(abschnitt);
+}
 
 getAbschnittPunkte(abschnitt: Abschnitt):number {    
   const summe = abschnitt.bewertungsKriterium.reduce((sum, kriterium) => sum + kriterium.punkte, 0);
   const durchschnitt = summe / abschnitt.bewertungsKriterium.length;
   return Math.ceil(durchschnitt);
 } 
+
 getAbschnittErgebnis(abschnitt: Abschnitt): number {
   const abschnittPunkte = this.getAbschnittPunkte(abschnitt);
   return abschnittPunkte * abschnitt.faktor;
 }
-updateGesamtErgebnis(abschnitte: Abschnitt[]){
-  const gesamtErgebnis = abschnitte.reduce((total, abschnitt) => {
+
+getGesamtErgebnis(): number {
+  return this.abschnitte.reduce((total, abschnitt) => {
+    return total + this.getAbschnittErgebnis(abschnitt);
+  }, 0);
+}
+
+/*updateGesamtErgebnis(abschnitte: Abschnitt[]){
+  const gesamtErgebnis = this.abschnitte.reduce((total, abschnitt) => {
     return total + this.getAbschnittErgebnis(abschnitt);
   }, 0);
   this.gesamtErgebnisSubject.next(gesamtErgebnis);
-}
-/*updateGesamtErgebnis(abschnitte: Abschnitt[]) {
-  const gesamtErgebnis = abschnitte.reduce((total, abschnitt) => {
-    const abschnittErgebnis = this.getAbschnittErgebnis(abschnitt);
-    return total + abschnittErgebnis;
-  }, 0);
-
-  // Round the result to two decimal places
-  const roundedGesamtErgebnis = Math.round(gesamtErgebnis * 100) / 100;
-
-  this.gesamtErgebnisSubject.next(roundedGesamtErgebnis);
 }*/
+
 updatePunkte(kriterium: BewertungsKriterium, value: string | number){
   kriterium.punkte = value === '' ? 0 : Number(value);
 }
-  
-  /*event: any, kriterium: BewertungsKriterium){
-  const value = event === '' ? 0 : Number(event);
-  kriterium.punkte = value;
-  this.updateGesamtErgebnis();
-}*/
 }

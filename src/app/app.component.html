@@ -6,11 +6,5 @@
 
 <h2>Was möchtest du bewerten?</h2>
 <h3>Dokumentation</h3>
-<app-documentation></app-documentation>
-<app-vollstaendig></app-vollstaendig>
-<app-optisch></app-optisch>
-<div class="gesamtergebnis">
-    <h2>Gesamtergebnis Dokumentation: {{ (gesamtErgebnis$ | async) ?? 'Wird berechnet...' }}</h2>
-</div>
-<button>Speichern Dokumentation</button>
+<app-documentation (abschnittChanged)="onAbschnittChanged()"></app-documentation>
 <h3>Präsentation</h3>

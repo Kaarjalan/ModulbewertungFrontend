@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Abschnitt, BewertungsKriterium } from '../../bewertung.models/bewertung.model';
 import { BewertungsService } from '../../service';
@@ -11,7 +11,9 @@ import { BewertungsService } from '../../service';
   templateUrl: './vollstaendig.component.html',
   styleUrl: './vollstaendig.component.css'
 })
-export class VollstaendigComponent {
+export class VollstaendigComponent implements OnInit{
+  @Output() abschnittChanged = new EventEmitter<void>();
+
   bewertungsAbschnitte: Abschnitt[] = [
     {
     nummer: 1, 
@@ -29,6 +31,15 @@ export class VollstaendigComponent {
   ];
 
   constructor(private bewertungsService: BewertungsService){}
+
+  ngOnInit() {
+    this.bewertungsService.addAbschnitt(this.bewertungsAbschnitte[0]);
+  }
+
+  updatePunkte(event: any, kriterium: BewertungsKriterium){
+    this.bewertungsService.updatePunkte(kriterium, event);
+    this.abschnittChanged.emit();
+  }
   
   getAbschnittPunkte(abschnitt: Abschnitt):number {    
     return this.bewertungsService.getAbschnittPunkte (abschnitt);
@@ -36,9 +47,9 @@ export class VollstaendigComponent {
   getAbschnittErgebnis(abschnitt: Abschnitt): number {
     return this.bewertungsService.getAbschnittErgebnis(abschnitt);
   }
-  updateNotiz(){}
-  updatePunkte(event: any, kriterium: BewertungsKriterium){
-    this.bewertungsService.updatePunkte(kriterium, event);
-    this.bewertungsService.updateGesamtErgebnis(this.bewertungsAbschnitte);
+  updateNotiz(){
+
+    this.abschnittChanged.emit();
   }
+  
 }
