@@ -1,0 +1,49 @@
+<div>
+    <table>
+      <colgroup>
+        <col class="col-nummer" />
+        <col class="col-kriterium" />
+        <col class="col-faktor" />
+        <col class="col-punkte" />
+        <col class="col-ergebnis" />
+        <col class="col-anmerkungen" />
+      </colgroup>
+        <tbody>
+            <ng-container *ngFor="let abschnitt of bewertungsAbschnitte">
+                <tr>
+                  <td><b>{{ abschnitt.nummer }}</b></td>
+                  <td><b>{{ abschnitt.name }}</b></td>
+                  <td><b>{{ abschnitt.faktor }}</b></td>
+                  <td [attr.rowspan]="abschnitt.bewertungsKriterium.length + 1">
+                    {{ getAbschnittPunkte(abschnitt) }}
+                  </td>
+                  <td [attr.rowspan]="abschnitt.bewertungsKriterium.length + 1 ">
+                    <b>{{ getAbschnittErgebnis(abschnitt) }}</b>
+                  </td>
+                  <td>{{ abschnitt.notiz }}</td>
+                </tr>
+                <tr *ngFor="let kriterium of abschnitt.bewertungsKriterium">
+                  <td></td>
+                  <td>{{ kriterium.name }}</td>
+                  <td>
+                    <input type="number"
+                           [ngModel]="kriterium.punkte === 0 ? '' : kriterium.punkte"
+                           (ngModelChange)="updatePunkte($event, kriterium)"
+                           placeholder="-"
+                           min="0"
+                           max="10"
+                           step="1">
+                  </td>
+                  <td>
+                    <input 
+                        type="text"
+                        class="expandable-input"
+                        placeholder="Bewerte uns gut bitte :)"
+                        [(ngModel)]="kriterium.notiz"
+                        (ngModelChange)="updateNotiz()">
+                  </td>
+                </tr>
+              </ng-container>
+        </tbody>
+    </table>
+</div>

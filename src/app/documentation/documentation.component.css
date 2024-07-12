@@ -1,10 +1,10 @@
 .col-nummer { width: 30px; }
-.col-kriterium { width: 300px; }
+.col-kriterium { width: 430px; }
 .col-faktor { width: 30px; }
 .col-punkte { width: 30px; }
 .col-ergebnis { width: 30px; }
 .col-anmerkungen { width: 150px; }
 
 .expandable-input {
-  width: 300px; /* Startbreite */
+  width: 300px;
 }
