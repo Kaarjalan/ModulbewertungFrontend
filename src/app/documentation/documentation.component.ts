@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BewertungsService } from '../service';
 import { VollstaendigComponent } from './1-vollstaendig/vollstaendig.component';
 import { OptischComponent } from './2-optisch/optisch.component';
-import { SprachlichComponent } from './3-sprachlich/optisch.component';
-import { PraxisComponent } from "./4-praxis/optisch.component";
+import { SprachlichComponent } from './3-sprachlich/sprachlich.component';
+import { PraxisComponent } from "./4-praxis/praxis.component";
 import { PraxiVorgabenComponent } from "./5-vorgaben/optisch.component";
 import { FachlichComponent } from "./6-fachlich/optisch.component";
 

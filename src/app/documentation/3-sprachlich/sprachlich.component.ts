@@ -6,24 +6,25 @@ import { BewertungsService } from '../../service';
 
 
 @Component({
-  selector: 'app-praxis',
+  selector: 'app-sprachlich',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './optisch.component.html',
-  styleUrl: './optisch.component.css'
+  templateUrl: './sprachlich.component.html',
+  styleUrl: './sprachlich.component.css'
 })
-export class PraxisComponent implements OnInit {
+export class SprachlichComponent implements OnInit {
   @Output() abschnittChanged = new EventEmitter<void>();
 
   bewertungsAbschnitte: Abschnitt[] = [
     {
-    nummer: 4, 
-    name: "Praxisbezogene und zielorientierte Arbeitsbläufe?",
-    faktor: 2,
+    nummer: 3, 
+    name: "Entspricht die sprachliche Gestaltung einer fachlichen Doku?",
+    faktor: 1,
     bewertungsKriterium: [
-      {name: "Projektanstoß", punkte: 0, notiz: ""},
-      {name: "Planung und Durchführung", punkte: 0, notiz: ""},
-      {name: "Abschluss / Projektergebnis", punkte: 0, notiz: ""},
+      {name: "Ausdruck", punkte: 0, notiz: ""},
+      {name: "Satzbau", punkte: 0, notiz: ""},
+      {name: "Stil", punkte: 0, notiz: ""},
+      {name: "Rechschreibung", punkte: 0, notiz: ""},
       ],
       notiz: ""
     },
