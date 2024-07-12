@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserComponent } from './user/user.component';
-import { StudentsComponent } from './students/students.component';
+import { TeilnehmerComponent } from './teilnehmer/teilnehmer.component';
 import { ModulesComponent } from './modules/modules.component';
 import { BewertungHeaderComponent } from './bewertung-header/bewertung-header.component';
 import { OptischComponent } from './documentation/2-optisch/optisch.component';
-import { Observable } from 'rxjs';
 import { BewertungsService } from './service';
 import { CommonModule } from '@angular/common';
 import { DocumentationComponent } from './documentation/documentation.component';
@@ -18,7 +17,7 @@ import { VollstaendigComponent } from './documentation/1-vollstaendig/vollstaend
   imports: [
     RouterOutlet, 
     UserComponent, 
-    StudentsComponent, 
+    TeilnehmerComponent, 
     ModulesComponent,
     DocumentationComponent,  
     BewertungHeaderComponent,

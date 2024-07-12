@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-students',
+  selector: 'app-teilnehemr',
   standalone: true,
   imports: [],
-  templateUrl: './students.component.html',
-  styleUrl: './students.component.css'
+  templateUrl: './teilnehmer.component.html',
+  styleUrl: './teilnehmer.component.css'
 })
-export class StudentsComponent {
+export class TeilnehmerComponent {
   hideStudent = true;
 
   toggleStudent(){

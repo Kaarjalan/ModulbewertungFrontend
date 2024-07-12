@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
 import { Abschnitt, BewertungsKriterium } from "./bewertung.models/bewertung.model";
 
 
