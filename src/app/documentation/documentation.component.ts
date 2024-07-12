@@ -5,11 +5,12 @@ import { BewertungsService } from '../service';
 import { VollstaendigComponent } from './1-vollstaendig/vollstaendig.component';
 import { OptischComponent } from './2-optisch/optisch.component';
 import { SprachlichComponent } from './3-sprachlich/optisch.component';
+import { PraxisComponent } from "./4-praxis/optisch.component";
 
 @Component({
   selector: 'app-documentation',
   standalone: true,
-  imports: [CommonModule, FormsModule, VollstaendigComponent, OptischComponent, SprachlichComponent],
+  imports: [CommonModule, FormsModule, VollstaendigComponent, OptischComponent, SprachlichComponent, PraxisComponent],
   templateUrl: './documentation.component.html',
   styleUrl: './documentation.component.css',
 })
