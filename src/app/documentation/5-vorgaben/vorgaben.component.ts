@@ -6,24 +6,25 @@ import { BewertungsService } from '../../service';
 
 
 @Component({
-  selector: 'app-fachlich',
+  selector: 'app-vorgaben',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './optisch.component.html',
-  styleUrl: './optisch.component.css'
+  templateUrl: './vorgaben.component.html',
+  styleUrl: './vorgaben.component.css'
 })
-export class FachlichComponent implements OnInit {
+export class VorgabenComponent implements OnInit {
   @Output() abschnittChanged = new EventEmitter<void>();
 
   bewertungsAbschnitte: Abschnitt[] = [
     {
-    nummer: 6, 
-    name: "Fachliche Qualität?",
-    faktor: 4,
+    nummer: 5, 
+    name: "Beschreibung der Vorgaben / Einflussfaktoren?",
+    faktor: 2,
     bewertungsKriterium: [
-      {name: "fachlich richtig", punkte: 0, notiz: ""},
-      {name: "begründet", punkte: 0, notiz: ""},
-      {name: "fachliche Tiefe / Komplexität", punkte: 0, notiz: ""},
+      {name: "wirtschaftlich", punkte: 0, notiz: ""},
+      {name: "technisch", punkte: 0, notiz: ""},
+      {name: "organisatorisch", punkte: 0, notiz: ""},
+      {name: "zeitlich", punkte: 0, notiz: ""},
       ],
       notiz: ""
     },
