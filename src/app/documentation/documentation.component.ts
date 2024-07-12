@@ -7,11 +7,12 @@ import { OptischComponent } from './2-optisch/optisch.component';
 import { SprachlichComponent } from './3-sprachlich/optisch.component';
 import { PraxisComponent } from "./4-praxis/optisch.component";
 import { PraxiVorgabenComponent } from "./5-vorgaben/optisch.component";
+import { FachlichComponent } from "./6-fachlich/optisch.component";
 
 @Component({
   selector: 'app-documentation',
   standalone: true,
-  imports: [CommonModule, FormsModule, VollstaendigComponent, OptischComponent, SprachlichComponent, PraxisComponent, PraxiVorgabenComponent],
+  imports: [CommonModule, FormsModule, VollstaendigComponent, OptischComponent, SprachlichComponent, PraxisComponent, PraxiVorgabenComponent, FachlichComponent],
   templateUrl: './documentation.component.html',
   styleUrl: './documentation.component.css',
 })
