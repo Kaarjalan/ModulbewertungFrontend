@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VorgabenComponent } from './vorgaben.component';
 
-describe('OptischComponent', () => {
+describe('VorgabenComponent', () => {
   let component: VorgabenComponent;
   let fixture: ComponentFixture<VorgabenComponent>;
 
