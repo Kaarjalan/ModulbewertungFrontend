@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Abschnitt, BewertungsKriterium } from '../../bewertung.models/bewertung.model';
-import { BewertungsService } from '../../service';
+import { BewertungsService } from '../../../service/service';
 
 @Component({
   selector: 'app-vollstaendig',
